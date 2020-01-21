@@ -50,6 +50,7 @@ struct ContentView: View {
             //HStack {
                 Image(systemName: "\(row * 4 + col).circle")
                 Text("R\(row) C\(col)")
+            .modifier(BlueTitle())
             //}
         }
     }
@@ -92,6 +93,14 @@ extension View {
     
     func watermark(with text: String) -> some View {
         self.modifier(Watermark(text: text))
+    }
+}
+
+struct BlueTitle: ViewModifier {
+    func body(content: Content) -> some View {
+        content
+            .font(.largeTitle)
+            .foregroundColor(.blue)
     }
 }
 
